@@ -30,11 +30,11 @@ async function calculate() {
   }
 }
 
-// ✅ Keyboard support (fixed to avoid duplicates)
+// ✅ Keyboard support (fixed duplication)
 document.addEventListener("keydown", function(event) {
   const problem = document.getElementById("problem");
 
-  // Ignore if focus is already inside the input box (to prevent double entry)
+  // Only handle keyboard input if the user is NOT typing directly in the box
   if (document.activeElement.id === "problem") return;
 
   if ((event.key >= '0' && event.key <= '9') || 
