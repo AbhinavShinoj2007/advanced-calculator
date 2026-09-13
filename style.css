@@ -27,11 +27,11 @@ h1 {
 
 #problem, #answer {
   width: 100%;
-  height: 50px;
-  margin-bottom: 10px;
+  height: 70px;   /* larger size */
+  margin-bottom: 15px;
   text-align: right;
-  font-size: 20px;
-  padding: 10px;
+  font-size: 28px; /* larger font */
+  padding: 12px;
   border-radius: 8px;
   border: none;
 }
@@ -48,31 +48,22 @@ h1 {
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(4, 70px);
-  grid-gap: 10px;
+  grid-template-columns: repeat(4, 80px);
+  grid-gap: 12px;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.scientific {
-  display: grid;
-  grid-template-columns: repeat(3, 90px);
-  grid-gap: 10px;
-  justify-content: center;
-}
-
-.buttons button,
-.scientific button {
-  height: 50px;
-  font-size: 18px;
+.buttons button {
+  height: 60px;
+  font-size: 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.buttons button:hover,
-.scientific button:hover {
+.buttons button:hover {
   transform: scale(1.1);
 }
 
