@@ -1,3 +1,4 @@
+/* General page styling */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #6a11cb, #2575fc);
@@ -17,6 +18,7 @@ h1 {
   text-shadow: 2px 2px 5px #000;
 }
 
+/* Calculator box */
 .calculator {
   display: inline-block;
   padding: 20px;
@@ -25,6 +27,7 @@ h1 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
+/* Display screen */
 #display {
   width: 100%;
   height: 50px;
@@ -35,40 +38,30 @@ h1 {
   border-radius: 8px;
   border: none;
   background: #333;
-  color: #0f0;
+  color: #0f0; /* neon green text */
 }
 
-.buttons button {
-  width: 70px;
+/* Main keypad grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Scientific functions grid */
+.scientific {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+/* Button styling */
+.buttons button,
+.scientific button {
   height: 50px;
-  margin: 5px;
   font-size: 18px;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.buttons button:hover {
-  transform: scale(1.1);
-}
-
-.op {
-  background: #ff9800;
-  color: #fff;
-}
-
-.eq {
-  background: #4caf50;
-  color: #fff;
-}
-
-.clear {
-  background: #f44336;
-  color: #fff;
-}
-
-footer {
-  margin-top: 20px;
-  font-size: 14px;
-}
+  border-radius
