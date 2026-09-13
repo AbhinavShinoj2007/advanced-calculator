@@ -1,27 +1,27 @@
 function appendValue(val) {
-  document.getElementById("display").value += val;
+  document.getElementById("problem").value += val;
 }
 
-function clearDisplay() {
-  document.getElementById("display").value = "";
-  document.getElementById("result").innerText = "";
+function clearAll() {
+  document.getElementById("problem").value = "";
+  document.getElementById("answer").value = "";
 }
 
 function deleteLast() {
-  let display = document.getElementById("display");
-  display.value = display.value.slice(0, -1);
+  let problem = document.getElementById("problem");
+  problem.value = problem.value.slice(0, -1);
 }
 
 function calculate() {
   try {
-    let expr = document.getElementById("display").value;
+    let expr = document.getElementById("problem").value;
     // Replace symbols with JS operators
     expr = expr.replace(/×/g, "*");
     expr = expr.replace(/÷/g, "/");
     let result = eval(expr);
 
-    // Show result on a new line
-    document.getElementById("result").innerText = "= " + result;
+    // Show result in answer box
+    document.getElementById("answer").value = result;
   } catch (e) {
     alert("Invalid Expression");
   }
@@ -29,14 +29,14 @@ function calculate() {
 
 // Keyboard support
 document.addEventListener("keydown", function(event) {
-  const display = document.getElementById("display");
+  const problem = document.getElementById("problem");
 
   if ((event.key >= '0' && event.key <= '9') || 
       ['+', '-', '*', '/', '.', '(', ')'].includes(event.key)) {
-    display.value += event.key;
+    problem.value += event.key;
   }
 
   if (event.key === "Enter") calculate();
   if (event.key === "Backspace") deleteLast();
-  if (event.key === "Escape") clearDisplay();
+  if (event.key === "Escape") clearAll();
 });
