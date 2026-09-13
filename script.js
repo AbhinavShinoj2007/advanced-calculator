@@ -14,3 +14,29 @@ function calculate() {
     alert("Invalid Expression");
   }
 }
+
+// ✅ Keyboard support
+document.addEventListener("keydown", function(event) {
+  const display = document.getElementById("display");
+
+  // Allow numbers, operators, and decimal
+  if ((event.key >= '0' && event.key <= '9') || 
+      ['+', '-', '*', '/', '.', '(', ')'].includes(event.key)) {
+    display.value += event.key;
+  }
+
+  // Enter key = calculate
+  if (event.key === "Enter") {
+    calculate();
+  }
+
+  // Backspace = delete last character
+  if (event.key === "Backspace") {
+    display.value = display.value.slice(0, -1);
+  }
+
+  // Escape = clear
+  if (event.key === "Escape") {
+    clearDisplay();
+  }
+});
