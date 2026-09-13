@@ -93,3 +93,30 @@ footer {
   margin-top: 20px;
   font-size: 14px;
 }
+.operations {
+  margin-top: 20px;
+  text-align: left;
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  color: #fff;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.operations h2 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  color: #4caf50;
+}
+
+.operations ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.operations li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  }
