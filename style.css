@@ -64,4 +64,39 @@ h1 {
   height: 50px;
   font-size: 18px;
   border: none;
-  border-radius
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttons button:hover,
+.scientific button:hover {
+  transform: scale(1.1);
+}
+
+/* Color-coded buttons */
+.op {
+  background: #ff9800;
+  color: #fff;
+}
+
+.eq {
+  background: #4caf50;
+  color: #fff;
+}
+
+.clear {
+  background: #f44336;
+  color: #fff;
+}
+
+.delete {
+  background: #607d8b;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
