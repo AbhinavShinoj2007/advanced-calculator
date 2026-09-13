@@ -1,5 +1,12 @@
 function appendValue(val) {
   let problem = document.getElementById("problem");
+  let lastChar = problem.value.slice(-1);
+
+  // Prevent duplicate operators like ++, --, **, //
+  if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(val)) {
+    return;
+  }
+
   problem.value += val;
 }
 
@@ -16,11 +23,8 @@ function deleteLast() {
 async function calculate() {
   try {
     let expr = document.getElementById("problem").value;
-    // Replace symbols with JS operators
-    expr = expr.replace(/×/g, "*");
-    expr = expr.replace(/÷/g, "/");
+    expr = expr.replace(/×/g, "*").replace(/÷/g, "/");
 
-    // Call MathJS API
     const response = await fetch(`https://api.mathjs.org/v4/?expr=${encodeURIComponent(expr)}`);
     const result = await response.text();
 
@@ -30,15 +34,21 @@ async function calculate() {
   }
 }
 
-// ✅ Keyboard support (fixed duplication)
+// ✅ Keyboard support (no duplication + validation)
 document.addEventListener("keydown", function(event) {
   const problem = document.getElementById("problem");
 
-  // Only handle keyboard input if the user is NOT typing directly in the box
+  // If typing directly in the input box, let browser handle it
   if (document.activeElement.id === "problem") return;
 
-  if ((event.key >= '0' && event.key <= '9') || 
-      ['+', '-', '*', '/', '.', '(', ')'].includes(event.key)) {
+  let lastChar = problem.value.slice(-1);
+
+  if ((event.key >= '0' && event.key <= '9') || ['.', '(', ')'].includes(event.key)) {
+    problem.value += event.key;
+  }
+
+  if (['+', '-', '*', '/'].includes(event.key)) {
+    if (['+', '-', '*', '/'].includes(lastChar)) return;
     problem.value += event.key;
   }
 
