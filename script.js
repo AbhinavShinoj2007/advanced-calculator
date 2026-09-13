@@ -4,6 +4,7 @@ function appendValue(val) {
 
 function clearDisplay() {
   document.getElementById("display").value = "";
+  document.getElementById("result").innerText = "";
 }
 
 function deleteLast() {
@@ -18,7 +19,9 @@ function calculate() {
     expr = expr.replace(/×/g, "*");
     expr = expr.replace(/÷/g, "/");
     let result = eval(expr);
-    document.getElementById("display").value = result;
+
+    // Show result on a new line
+    document.getElementById("result").innerText = "= " + result;
   } catch (e) {
     alert("Invalid Expression");
   }
