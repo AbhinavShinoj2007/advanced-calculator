@@ -10,8 +10,9 @@
     <h1>⚡ Advanced Calculator ⚡</h1>
     <div class="calculator">
       <input type="text" id="display" readonly>
+
+      <!-- Main keypad -->
       <div class="buttons">
-        <!-- Number buttons -->
         <button onclick="appendValue('7')">7</button>
         <button onclick="appendValue('8')">8</button>
         <button onclick="appendValue('9')">9</button>
@@ -32,13 +33,21 @@
         <button class="eq" onclick="calculate()">=</button>
         <button class="op" onclick="appendValue('+')">+</button>
 
-        <!-- Extra functions -->
+        <!-- NEW: Brackets and Delete -->
+        <button onclick="appendValue('(')">(</button>
+        <button onclick="appendValue(')')">)</button>
+        <button class="delete" onclick="deleteLast()">⌫</button>
+        <button class="clear" onclick="clearDisplay()">C</button>
+      </div>
+
+      <!-- Scientific functions row -->
+      <div class="scientific">
         <button onclick="appendValue('Math.pow(')">x^y</button>
         <button onclick="appendValue('Math.sqrt(')">√</button>
         <button onclick="appendValue('Math.sin(')">sin</button>
         <button onclick="appendValue('Math.cos(')">cos</button>
         <button onclick="appendValue('Math.tan(')">tan</button>
-        <button class="clear" onclick="clearDisplay()">C</button>
+        <button onclick="appendValue('Math.log(')">log</button>
       </div>
     </div>
     <footer>
@@ -48,4 +57,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
