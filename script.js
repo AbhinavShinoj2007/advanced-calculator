@@ -12,15 +12,17 @@ function deleteLast() {
   problem.value = problem.value.slice(0, -1);
 }
 
-function calculate() {
+async function calculate() {
   try {
     let expr = document.getElementById("problem").value;
     // Replace symbols with JS operators
     expr = expr.replace(/×/g, "*");
     expr = expr.replace(/÷/g, "/");
 
-    // Evaluate safely
-    let result = eval(expr);
+    // Call MathJS API
+    const response = await fetch(`https://api.mathjs.org/v4/?expr=${encodeURIComponent(expr)}`);
+    const result = await response.text();
+
     document.getElementById("answer").value = result;
   } catch (e) {
     document.getElementById("answer").value = "Error";
