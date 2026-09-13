@@ -1,5 +1,6 @@
 function appendValue(val) {
-  document.getElementById("problem").value += val;
+  let problem = document.getElementById("problem");
+  problem.value += val;
 }
 
 function clearAll() {
@@ -29,16 +30,27 @@ async function calculate() {
   }
 }
 
-// Keyboard support
+// ✅ Keyboard support (fixed to avoid duplicates)
 document.addEventListener("keydown", function(event) {
   const problem = document.getElementById("problem");
+
+  // Ignore if focus is already inside the input box (to prevent double entry)
+  if (document.activeElement.id === "problem") return;
 
   if ((event.key >= '0' && event.key <= '9') || 
       ['+', '-', '*', '/', '.', '(', ')'].includes(event.key)) {
     problem.value += event.key;
   }
 
-  if (event.key === "Enter") calculate();
-  if (event.key === "Backspace") deleteLast();
-  if (event.key === "Escape") clearAll();
+  if (event.key === "Enter") {
+    event.preventDefault();
+    calculate();
+  }
+  if (event.key === "Backspace") {
+    event.preventDefault();
+    deleteLast();
+  }
+  if (event.key === "Escape") {
+    clearAll();
+  }
 });
