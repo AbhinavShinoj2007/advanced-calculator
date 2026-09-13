@@ -18,12 +18,12 @@ function calculate() {
     // Replace symbols with JS operators
     expr = expr.replace(/×/g, "*");
     expr = expr.replace(/÷/g, "/");
-    let result = eval(expr);
 
-    // Show result in answer box
+    // Evaluate safely
+    let result = eval(expr);
     document.getElementById("answer").value = result;
   } catch (e) {
-    alert("Invalid Expression");
+    document.getElementById("answer").value = "Error";
   }
 }
 
