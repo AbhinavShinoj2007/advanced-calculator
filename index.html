@@ -6,34 +6,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Advanced Calculator</h1>
-  <div class="calculator">
-    <input type="text" id="display" readonly>
-    <div class="buttons">
-      <!-- Number buttons -->
-      <button onclick="appendValue('7')">7</button>
-      <button onclick="appendValue('8')">8</button>
-      <button onclick="appendValue('9')">9</button>
-      <button onclick="appendValue('/')">÷</button>
+  <div class="container">
+    <h1>⚡ Advanced Calculator ⚡</h1>
+    <div class="calculator">
+      <input type="text" id="display" readonly>
+      <div class="buttons">
+        <!-- Number buttons -->
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button class="op" onclick="appendValue('/')">÷</button>
 
-      <button onclick="appendValue('4')">4</button>
-      <button onclick="appendValue('5')">5</button>
-      <button onclick="appendValue('6')">6</button>
-      <button onclick="appendValue('*')">×</button>
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button class="op" onclick="appendValue('*')">×</button>
 
-      <button onclick="appendValue('1')">1</button>
-      <button onclick="appendValue('2')">2</button>
-      <button onclick="appendValue('3')">3</button>
-      <button onclick="appendValue('-')">−</button>
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button class="op" onclick="appendValue('-')">−</button>
 
-      <button onclick="appendValue('0')">0</button>
-      <button onclick="appendValue('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="appendValue('+')">+</button>
+        <button onclick="appendValue('0')">0</button>
+        <button onclick="appendValue('.')">.</button>
+        <button class="eq" onclick="calculate()">=</button>
+        <button class="op" onclick="appendValue('+')">+</button>
 
-      <!-- Extra functions -->
-      <button onclick="appendValue('Math.pow(')">x^y</button>
-      <button onclick="appendValue('Math.sqrt(')">√</button>
-      <button onclick="appendValue('Math.sin(')">sin</button>
-      <button onclick="appendValue('Math.cos(')">cos</button>
-      <button onclick="appendValue('Math.tan(')">tan</button>
+        <!-- Extra functions -->
+        <button onclick="appendValue('Math.pow(')">x^y</button>
+        <button onclick="appendValue('Math.sqrt(')">√</button>
+        <button onclick="appendValue('Math.sin(')">sin</button>
+        <button onclick="appendValue('Math.cos(')">cos</button>
+        <button onclick="appendValue('Math.tan(')">tan</button>
+        <button class="clear" onclick="clearDisplay()">C</button>
+      </div>
+    </div>
+    <footer>
+      <p>Made with ❤️ by Shinoj</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
