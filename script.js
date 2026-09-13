@@ -6,6 +6,11 @@ function clearDisplay() {
   document.getElementById("display").value = "";
 }
 
+function deleteLast() {
+  let display = document.getElementById("display");
+  display.value = display.value.slice(0, -1);
+}
+
 function calculate() {
   try {
     let result = eval(document.getElementById("display").value);
@@ -19,7 +24,7 @@ function calculate() {
 document.addEventListener("keydown", function(event) {
   const display = document.getElementById("display");
 
-  // Allow numbers, operators, and decimal
+  // Allow numbers, operators, brackets, decimal
   if ((event.key >= '0' && event.key <= '9') || 
       ['+', '-', '*', '/', '.', '(', ')'].includes(event.key)) {
     display.value += event.key;
@@ -32,7 +37,7 @@ document.addEventListener("keydown", function(event) {
 
   // Backspace = delete last character
   if (event.key === "Backspace") {
-    display.value = display.value.slice(0, -1);
+    deleteLast();
   }
 
   // Escape = clear
